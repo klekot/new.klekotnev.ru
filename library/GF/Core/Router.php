@@ -34,7 +34,7 @@ class Router
                  }
                  if (!isset($route['module'])) $route['module'] = 'Main';
                  if (!isset($route['controller'])) $route['controller'] = 'Index';
-                 if (!isset($route['action'])) $route['action'] = 'prehistory';
+                 if (!isset($route['action'])) $route['action'] = 'index';
 
                  self::$route = $route;
                  return true;

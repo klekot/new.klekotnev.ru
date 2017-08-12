@@ -92,9 +92,9 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/common/contact">Контакты</a></li>
-                <li><a href="/common/thanks">Спасибо</a></li>
-                <li><a href="/common/search">Поиск</a></li>
+                <li><a href="/contact">Контакты</a></li>
+                <li><a href="/thanks">Спасибо</a></li>
+                <li><a href="/search">Поиск</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -104,22 +104,25 @@
 
     <div class="layout-wrapper">
         SITE_CONTENT
+
     </div>
 
 </div> <!-- /container -->
 
 <footer class="footer">
     <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">&copy Игорь Клекотнев, 2008 - <?php echo date("Y"); ?></p>
     </div>
 </footer>
 <!-- Bootstrap core JavaScript
 ================================================== -->
-<!-- include javascript, jQuery FIRST -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
-

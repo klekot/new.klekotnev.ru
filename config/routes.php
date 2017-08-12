@@ -13,7 +13,10 @@ Router::add('^pages/(?P<action>[a-z-]+)/(?P<alias>[a-z-]+)$', ['controller' => '
 Router::add('^pages/(?P<alias>[a-z-]+)$', ['controller' => 'Pages', 'action' => 'view']);
 
 //  Main routes
-Router::add('^$', ['module' => 'Main', 'controller' => 'Index', 'action' => 'index']);
+Router::add('^$'       , ['module' => 'Main', 'controller' => 'Index', 'action' => 'index']);
+Router::add('^contact$', ['module' => 'Main', 'controller' => 'Index', 'action' => 'contact']);
+Router::add('^thanks$' , ['module' => 'Main', 'controller' => 'Index', 'action' => 'thanks']);
+Router::add('^search$' , ['module' => 'Main', 'controller' => 'Index', 'action' => 'search']);
 
 if (MODULES_ENABLED) {
     Router::add('^(?P<module>[a-z-]+)$');

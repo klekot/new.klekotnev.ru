@@ -14,7 +14,6 @@ abstract class AbstractController
     {
         $this->route  = $route;
         $this->view = new AbstractView($this->route);
-        $this->view->show(true);
     }
 
     public function indexAction()
