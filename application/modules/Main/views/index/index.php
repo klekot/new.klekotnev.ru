@@ -1,5 +1,5 @@
 <div class='main-igor'>
-
+    <img src="../../img/igor_portrait.jpg">
 </div>
 <div class="cite-container">
     <div class="cite">

@@ -9,7 +9,7 @@
     <meta name="author" content="Igor Klekotnev">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Полное Собрание Сочинений Игоря Клекотнева</title>
+    <title><?php echo SITE_TITLE?></title>
 
     <link rel="stylesheet" href="../../css/common.css">
 
@@ -42,7 +42,7 @@
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="header-banner">
-        <h1>Полное Собрание Сочинений Игоря Клекотнева</h1>
+        <h1><a href="<?php echo SITE_ROOT ?>"><?php echo SITE_TITLE?></a></h1>
     </div>
 
     <div class="container">
@@ -90,11 +90,22 @@
                         <li><a href="/nowhereland/folklore">Фольклор</a></li>
                     </ul>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
                 <li><a href="/contact">Контакты</a></li>
                 <li><a href="/thanks">Спасибо</a></li>
-                <li><a href="/search">Поиск</a></li>
+            </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Поиск по сайту ...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Найти</button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-5 -->
+                </div><!-- /.row -->
+            </div>
+            <ul class="nav navbar-nav navbar-right">
             </ul>
         </div><!--/.nav-collapse -->
     </div>

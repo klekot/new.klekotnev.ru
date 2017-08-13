@@ -27,11 +27,6 @@ settings:
   # Choose type of application environment
   ENVIRONMENT:         development
 
-  # Here you can define any custom constants for your application.
-  # For example:
-  # Make some group for constants
   sub-settings:
-    # Define some CONSTANT: value pair
-    SOME_CONSTANT1: value1
-    SOME_CONSTANT2: value2
-    SOME_CONSTANT3: value3
+    SITE_ROOT:         http://new.klekotnev.local
+    SITE_TITLE:        Полное Собрание Сочинений Игоря Клекотнева

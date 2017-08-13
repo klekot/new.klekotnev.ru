@@ -10,6 +10,24 @@ html {
     font-weight: 700; !important
 }
 
+.header-banner a {
+    color: #000;
+}
+
+.header-banner a:hover{
+    color: #000;
+    text-decoration: none;
+}
+
+.header-banner a:focus{
+    color: #000;
+    text-decoration: none;
+}
+
+.header-banner a:visited {
+    color: #000;
+}
+
 #navbar {
     font-family: 'PT Mono', monospace;
     font-size: medium;
@@ -46,4 +64,12 @@ html {
 
 .cite ul {
     list-style-type: none;
+}
+
+.input-group {
+    padding-top: 7px;
+}
+
+.col-lg-5.search {
+    padding-right: 0px;
 }
