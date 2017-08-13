@@ -9,8 +9,8 @@ class PrehistoryController extends AbstractController
 {
     public function indexAction()
     {
-        $user = User::find(1);
-        $this->view->user = $user->firstname;
+//        $user = User::find(1);
+//        $this->view->user = $user->firstname;
         $this->view->show();
     }
 }
