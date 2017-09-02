@@ -6,6 +6,6 @@
  * Date: 06.08.17
  * Time: 11:36
  */
-class UserModel extends \ActiveRecord\Model
+class User extends \ActiveRecord\Model
 {
 }

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Mono');
 
 html {
-    background-color: #1b6d85;
+    //background-color: #1b6d85;
 }
 
 .header-banner {
@@ -57,7 +57,7 @@ html {
 
 .cite {
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 410px;
     font-family: 'Marck Script', cursive;
     font-size: 20px;
 }

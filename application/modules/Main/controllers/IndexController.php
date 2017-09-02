@@ -11,6 +11,8 @@ class IndexController extends AbstractController
 {
     public function contactAction()
     {
+        $user = \User::find_by_name('Igor');
+        $this->view->user = $user;
         $this->view->show();
     }
 

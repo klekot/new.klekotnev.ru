@@ -42,7 +42,7 @@
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="header-banner">
-        <h1><a href="<?php echo SITE_ROOT ?>"><?php echo SITE_TITLE?></a></h1>
+        <h1><a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>"><?php echo SITE_TITLE?></a></h1>
     </div>
 
     <div class="container">

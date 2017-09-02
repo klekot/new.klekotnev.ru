@@ -11,9 +11,9 @@ connections:
     adapter: mysql
     host: localhost
     port: 3306
-    user: admin
-    pass: pass
-    base: gf_development
+    user: new_klekotnev_ru
+    pass:
+    base: new_klekotnev_ru_development
   test:
     adapter: mysql
     host: localhost
