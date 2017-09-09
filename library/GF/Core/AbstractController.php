@@ -9,11 +9,14 @@ abstract class AbstractController
 {
     public $route;
     public $view;
+    public $currentUser;
 
     public function __construct($route)
     {
         $this->route  = $route;
         $this->view = new AbstractView($this->route);
+        session_start();
+        $this->currentUser = (isset($_SESSION['current_user'])) ? $_SESSION['current_user'] : null;
     }
 
     public function indexAction()
