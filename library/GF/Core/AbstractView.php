@@ -12,8 +12,10 @@ use GF\Utils\Utils as Utils;
 
 class AbstractView
 {
-    public $layout;
-    public $view;
+    private $layout;
+    private $view;
+    private $route;
+    private $models;
 
     public function __construct($route)
     {
@@ -25,18 +27,21 @@ class AbstractView
             DIRECTORY_SEPARATOR . 'views' .
             DIRECTORY_SEPARATOR . strtolower($route['controller']) .
             DIRECTORY_SEPARATOR . $route['action'] . '.php';
+        $this->route = $route;
+        $this->models = AbstractModel::getModels();
     }
 
     public function show($customLayout = null, $layoutOnly = false)
     {
-        ob_start();
+        $tmpDir = ROOT. DIRECTORY_SEPARATOR . CACHE;
         $layout = ($customLayout) ? ROOT . DIRECTORY_SEPARATOR . APP. DIRECTORY_SEPARATOR . 'layouts' . DIRECTORY_SEPARATOR . $customLayout . '.php' : $this->layout;
         $viewContent   = (file_exists($this->view))   ? file_get_contents($this->view)   : '<p>View file not found  </p>';
         $layoutContent = (file_exists($layout)) ? file_get_contents($layout) : '<p>Layout file not found</p>';
         $mixContent = ($layoutOnly) ? str_replace(CONTENT_PLACEHOLDER, '', $layoutContent ) : Utils::normalizeContent($viewContent, $layoutContent);
-        eval('?>' . $mixContent . '<?php ');
-        $result = ob_get_contents();
-        ob_end_clean();
-        echo $result;
+        $tmpFile = fopen($tmpDir . DIRECTORY_SEPARATOR .'tmp_view.php', 'w');
+        fwrite($tmpFile, $mixContent);
+        fclose($tmpFile);
+        include($tmpDir . DIRECTORY_SEPARATOR . 'tmp_view.php');
+        file_get_contents($tmpDir . DIRECTORY_SEPARATOR . 'tmp_view.php', true);
     }
 }

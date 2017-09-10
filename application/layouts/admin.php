@@ -1,3 +1,8 @@
+<?php
+    $controlPanelRoot = DIRECTORY_SEPARATOR.$this->route['module'].
+                        DIRECTORY_SEPARATOR.$this->route['controller'].
+                        DIRECTORY_SEPARATOR;
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -48,29 +53,47 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">Переключить навигацию</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="<?php echo $controlPanelRoot; ?>"><?php echo SITE_TITLE?></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a href=<?php echo $controlPanelRoot; ?>statistics">Статистика</a></li>
+                <li><a href="<?php echo $controlPanelRoot; ?>settings">Настройки</a></li>
+                <li><a href="/" target="_blank">На сайт</a></li>
+                <li><a href="logout">Выход</a></li>
             </ul>
             <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
+                <input type="text" class="form-control" placeholder="Поиск...">
             </form>
         </div>
     </div>
 </nav>
 
 <div class="container-fluid">
-    SITE_CONTENT
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <h4>Управление:</h4>
+            <ul class="nav nav-sidebar">
+                <li><a href="<?php echo $controlPanelRoot; ?>">Обзор</a></li>
+                <li><a href="<?php echo $controlPanelRoot; ?>reports">Отчёты</a></li>
+                <li><a href="<?php echo $controlPanelRoot; ?>analytics">Аналитика</a></li>
+                <li><a href="<?php echo $controlPanelRoot; ?>import-export">Импорт/Экспорт</a></li>
+            </ul>
+            <h4>Модели данных:</h4>
+            <ul class="nav nav-sidebar">
+                <?php foreach ($this->models as $model): ?>
+                    <li><a href="<?php echo $controlPanelRoot; ?>model-table?name=<?php echo $model ?>"><?php echo $model ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        SITE_CONTENT
+    </div>
 </div>
 
 <!-- Bootstrap core JavaScript
@@ -83,5 +106,6 @@
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../js/ie10-viewport-bug-workaround.js"></script>
+<script src="../../js/common.js"></script>
 </body>
 </html>
