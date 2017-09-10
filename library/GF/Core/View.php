@@ -10,7 +10,7 @@ namespace GF\Core;
 
 use GF\Utils\Utils as Utils;
 
-class AbstractView
+class View
 {
     private $layout;
     private $view;
@@ -38,9 +38,10 @@ class AbstractView
         $viewContent   = (file_exists($this->view))   ? file_get_contents($this->view)   : '<p>View file not found  </p>';
         $layoutContent = (file_exists($layout)) ? file_get_contents($layout) : '<p>Layout file not found</p>';
         $mixContent = ($layoutOnly) ? str_replace(CONTENT_PLACEHOLDER, '', $layoutContent ) : Utils::normalizeContent($viewContent, $layoutContent);
-        $tmpFile = fopen($tmpDir . DIRECTORY_SEPARATOR .'tmp_view.php', 'w');
-        fwrite($tmpFile, $mixContent);
-        fclose($tmpFile);
+//        $tmpFile = fopen($tmpDir . DIRECTORY_SEPARATOR .'tmp_view.php', 'w');
+//        fwrite($tmpFile, $mixContent);
+//        fclose($tmpFile);
+        file_put_contents($tmpDir . DIRECTORY_SEPARATOR .'tmp_view.php', $mixContent);
         include($tmpDir . DIRECTORY_SEPARATOR . 'tmp_view.php');
         file_get_contents($tmpDir . DIRECTORY_SEPARATOR . 'tmp_view.php', true);
     }

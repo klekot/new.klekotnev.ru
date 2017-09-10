@@ -14,7 +14,7 @@ abstract class AbstractController
     public function __construct($route)
     {
         $this->route  = $route;
-        $this->view = new AbstractView($this->route);
+        $this->view = new View($this->route);
         session_start();
         $this->currentUser = (isset($_SESSION['current_user'])) ? $_SESSION['current_user'] : null;
     }
