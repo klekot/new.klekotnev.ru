@@ -114,6 +114,8 @@
 <div class="container">
 
     <div class="layout-wrapper">
+        <div class="breadcrumbs-container"><?php $this->breadcrumbs(); ?></div>
+        <br>
         SITE_CONTENT
 
     </div>
