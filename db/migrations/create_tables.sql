@@ -1,3 +1,11 @@
+CREATE TABLE `roles` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`)
+)
+  COLLATE='utf8_general_ci'
+  ENGINE=InnoDB;
+
 CREATE TABLE `users` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(255) NULL DEFAULT NULL,
@@ -10,14 +18,6 @@ CREATE TABLE `users` (
 	FOREIGN KEY (`role_id`)
 	REFERENCES `roles` (`id`)
 		ON UPDATE RESTRICT ON DELETE RESTRICT
-)
-	COLLATE='utf8_general_ci'
-	ENGINE=InnoDB;
-
-CREATE TABLE `roles` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`name` VARCHAR(255) NOT NULL,
-	PRIMARY KEY (`id`)
 )
 	COLLATE='utf8_general_ci'
 	ENGINE=InnoDB;

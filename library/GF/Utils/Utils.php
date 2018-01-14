@@ -104,7 +104,7 @@ class Utils
         return $normalizedContent;
     }
 
-    private function _getOccurrence($string, $subString)
+    private static function _getOccurrence($string, $subString)
     {
         $lastPos = 0;
         $positions = array();
