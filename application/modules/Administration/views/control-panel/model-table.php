@@ -1,5 +1,10 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h2 class="sub-header"><?php echo 'Модель: ' . $this->modelName . ' '; ?></h2>
+    <h2 class="sub-header">
+        <?php echo 'Модель: ' . $this->modelName . ' '; ?>
+        <a href="./add-model?<?php echo "name=".$this->modelName; ?>" >
+            <span class="glyphicon glyphicon-plus-sign add-model" aria-hidden="true"></span>
+        </a>
+    </h2>
     <div class="table-responsive">
         <table class="table table-striped table-bordered">
             <thead>
@@ -16,10 +21,7 @@
                         <?php foreach ($this->modelFields as $modelField): ?>
                             <td><?php echo $modelRow->{$modelField}; ?></td>
                         <?php endforeach; ?>
-                        <td width="10%">
-                            <a href="./add-model" >
-                                <span class="glyphicon glyphicon-plus-sign add-model" aria-hidden="true"></span>
-                            </a>&nbsp;&nbsp;
+                        <td width="10%">&nbsp;&nbsp;
                             <a href="./edit-model" >
                                 <span class="glyphicon glyphicon-edit edit-model" aria-hidden="true"></span>
                             </a>&nbsp;&nbsp;

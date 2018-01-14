@@ -69,6 +69,9 @@ class Utils
                             case 'MODELS':
                                 $value = ROOT. DIRECTORY_SEPARATOR . $app . DIRECTORY_SEPARATOR . $value;
                                 break;
+                            case 'HELPERS':
+                                $value = ROOT. DIRECTORY_SEPARATOR . $app . DIRECTORY_SEPARATOR . $value;
+                                break;
                             case 'DEFAULT_MODULE':
                                 $value = $app . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $value;
                             case 'LAYOUT_MAIN':

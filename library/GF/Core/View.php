@@ -17,6 +17,7 @@ class View
     private $view;
     private $route;
     private $models;
+    private $helpers;
     private $breadcrumbs;
 
     public function __construct($route)
@@ -29,8 +30,9 @@ class View
             DIRECTORY_SEPARATOR . 'views' .
             DIRECTORY_SEPARATOR . strtolower($route['controller']) .
             DIRECTORY_SEPARATOR . $route['action'] . '.php';
-        $this->route = $route;
-        $this->models = AbstractModel::getModels();
+        $this->route       = $route;
+        $this->models      = AbstractModel::getModels();
+        $this->helpers     = AbstractHelper::getHelpers();
         $this->breadcrumbs = new Breadcrumbs;
         $this->breadcrumbs->setDivider('»');
         $this->breadcrumbs->addCrumb('На главную', '/');
@@ -54,5 +56,12 @@ class View
             $this->breadcrumbs->addCrumb($this->title, '/');
             echo $this->breadcrumbs->render();
         }
+    }
+
+    public function createForm($modelName, $formName)
+    {
+        $form = new \FormsHelper($formName);
+
+        echo $form->getForm($modelName);
     }
 }

@@ -7,6 +7,7 @@ directories:
   GF:                  GF
   MODELS:              models
   MODULES:             modules
+  HELPERS:             helpers
   DEFAULT_MODULE:      Main
 
 # settings section

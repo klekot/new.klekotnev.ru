@@ -96,6 +96,10 @@ class ControlPanelController extends AbstractController
 
     public function addModelAction()
     {
+        $model = $_GET['name'];
+        $this->view->modelName = $model;
+        $this->view->model = $modelInstance = new $model;
+        $this->view->modelFields = array_keys($modelInstance->attributes());
         $this->view->show('admin');
     }
 
@@ -105,6 +109,11 @@ class ControlPanelController extends AbstractController
     }
 
     public function deleteModelAction()
+    {
+        $this->view->show('admin');
+    }
+
+    public function fillVocabularyAction()
     {
         $this->view->show('admin');
     }
