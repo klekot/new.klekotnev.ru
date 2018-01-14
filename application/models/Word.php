@@ -6,5 +6,10 @@
 
 class Word extends \GF\Core\AbstractModel
 {
+    const MODEL_NAME = 'Слова';
 
+    static $belongs_to = array(
+        array('idea'),
+        array('language')
+    );
 }

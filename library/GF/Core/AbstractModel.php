@@ -14,7 +14,8 @@ abstract class AbstractModel extends \ActiveRecord\Model
         foreach ($modelFiles as $modelFile) {
             if (in_array($modelFile, array('.', '..'))) continue;
             $modelName = explode('.', $modelFile);
-            $modelNames[] = $modelName[0];
+            $modelClass = new $modelName[0];
+            $modelNames[] = array('class' => $modelName[0], 'name' => $modelClass::MODEL_NAME);
         }
         return $modelNames;
     }

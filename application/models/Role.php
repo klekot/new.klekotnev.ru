@@ -1,10 +1,11 @@
 <?php
-
 # Table: roles
 # Primary key: id
 
 class Role extends \GF\Core\AbstractModel
 {
+    const MODEL_NAME = 'Роли пользователей';
+
     static $has_many = array(
         array('users')
     );

@@ -63,7 +63,7 @@ class ControlPanelController extends AbstractController
     public function modelTableAction()
     {
         $model = $_GET['name'];
-        $this->view->modelName = $model;
+        $this->view->modelName = $model::MODEL_NAME;
         $this->view->model = $modelInstance = new $model;
         $this->view->modelFields = array_keys($modelInstance->attributes());
         $this->view->show('admin');

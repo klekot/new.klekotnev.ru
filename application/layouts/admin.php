@@ -87,7 +87,7 @@
             <h4>Модели данных:</h4>
             <ul class="nav nav-sidebar">
                 <?php foreach ($this->models as $model): ?>
-                    <li><a href="<?php echo $controlPanelRoot; ?>model-table?name=<?php echo $model ?>"><?php echo $model ?></a></li>
+                    <li><a href="<?php echo $controlPanelRoot; ?>model-table?name=<?php echo $model['class'] ?>"><?php echo $model['name'] ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </div>

@@ -1,11 +1,12 @@
 <?php
-
 # Table: users
 # Primary key: id
 # Foreign key: role_id
 
 class User extends \GF\Core\AbstractModel
 {
+    const MODEL_NAME = 'Пользователи';
+
     public function isAuthorized()
     {
         if (isset($_SESSION['current_user'])) {
