@@ -158,6 +158,7 @@ CREATE TABLE IF NOT EXISTS `collectives` (
 
 CREATE TABLE IF NOT EXISTS `collective_musicians` (
 	`id` INT NOT NULL AUTO_INCREMENT,
+	`collective_id` int(11) NOT NULL,
 	`musician_id` int(11) NOT NULL,
 	#KEY `FK_collective_musicians_collectives` (`collective_id`),
 	#KEY `FK_collective_musicians_people` (`musician_id`),
@@ -261,6 +262,7 @@ CREATE TABLE IF NOT EXISTS `musician_records` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `music_authors` (
+	`id` INT NOT NULL AUTO_INCREMENT,
 	`music_id` int(11) NOT NULL,
 	`author_id` int(11) NOT NULL,
 	#KEY `FK_music_authors_musics` (`music_id`),
@@ -277,6 +279,7 @@ CREATE TABLE IF NOT EXISTS `music_authors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `text_authors` (
+	`id` INT NOT NULL AUTO_INCREMENT,
 	`text_id` int(11) NOT NULL,
 	`author_id` int(11) NOT NULL,
 	#KEY `FK_text_authors_texts` (`text_id`),
