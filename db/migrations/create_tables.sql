@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `file_types` (
 CREATE TABLE IF NOT EXISTS `authors` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`person_id` int(11) NOT NULL,
-	KEY `FK_authors_people` (`id`),
+	#KEY `FK_authors_people` (`id`),
 	CONSTRAINT `FK_authors_people`
 	FOREIGN KEY (`person_id`)
 	REFERENCES `people` (`id`)
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
 CREATE TABLE IF NOT EXISTS `musicians` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`person_id` int(11) NOT NULL,
-	KEY `FK_musicians_people` (`id`),
+	#KEY `FK_musicians_people` (`id`),
 	CONSTRAINT `FK_musicians_people`
 	FOREIGN KEY (`person_id`)
 	REFERENCES `people` (`id`)
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `files` (
 	`path` varchar(255) NOT NULL,
 	`file_type_id` int(11) DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	KEY `FK_files_file_types` (`file_type_id`),
+	#KEY `FK_files_file_types` (`file_type_id`),
 	CONSTRAINT `FK_files_file_types`
 	FOREIGN KEY (`file_type_id`)
 	REFERENCES `file_types` (`id`)
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `musics` (
 	`notation_file_id` int(11) NOT NULL,
 	`creation_date` date DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	KEY `FK_musics_files` (`notation_file_id`),
+	#KEY `FK_musics_files` (`notation_file_id`),
 	CONSTRAINT `FK_musics_files`
 	FOREIGN KEY (`notation_file_id`)
 	REFERENCES `files` (`id`)
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `texts` (
 	`content_file_id` int(11) NOT NULL,
 	`creation_date` date DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	KEY `FK_texts_files` (`content_file_id`),
+	#KEY `FK_texts_files` (`content_file_id`),
 	CONSTRAINT `FK_texts_files`
 	FOREIGN KEY (`content_file_id`)
 	REFERENCES `files` (`id`)
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `albums` (
 	`creation_date` date DEFAULT NULL,
 	`cover_file_id` int(11) DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	KEY `FK_albums_files` (`cover_file_id`),
+	#KEY `FK_albums_files` (`cover_file_id`),
 	CONSTRAINT `FK_albums_files`
 	FOREIGN KEY (`cover_file_id`)
 	REFERENCES `files` (`id`)
@@ -157,8 +157,8 @@ CREATE TABLE IF NOT EXISTS `collectives` (
 CREATE TABLE IF NOT EXISTS `collective_musicians` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`musician_id` int(11) NOT NULL,
-	KEY `FK_collective_musicians_collectives` (`collective_id`),
-	KEY `FK_collective_musicians_people` (`musician_id`),
+	#KEY `FK_collective_musicians_collectives` (`collective_id`),
+	#KEY `FK_collective_musicians_people` (`musician_id`),
 	CONSTRAINT `FK_collective_musicians_collectives`
 	FOREIGN KEY (`collective_id`)
 	REFERENCES `collectives` (`id`)
@@ -177,9 +177,9 @@ CREATE TABLE IF NOT EXISTS `compositions` (
 	`creation_date` date DEFAULT NULL,
 	`notation_file_id` int(11) DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	KEY `FK_compositions_musics` (`music_id`),
-	KEY `FK_compositions_texts` (`text_id`),
-	KEY `FK_compositions_files` (`notation_file_id`),
+	#KEY `FK_compositions_musics` (`music_id`),
+	#KEY `FK_compositions_texts` (`text_id`),
+	#KEY `FK_compositions_files` (`notation_file_id`),
 	CONSTRAINT `FK_compositions_files`
 	FOREIGN KEY (`notation_file_id`)
 	REFERENCES `files` (`id`)
@@ -207,11 +207,11 @@ CREATE TABLE IF NOT EXISTS `records` (
 	`sample_rate` varchar(50) DEFAULT NULL,
 	`bit_depth` varchar(50) DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	KEY `FK_records_compositions` (`composition_id`),
-	KEY `FK_records_albums` (`album_id`),
-	KEY `FK_records_collectives` (`collective_id`),
-	KEY `FK_records_record_types` (`record_type_id`),
-	KEY `FK_records_files` (`file_id`),
+	#KEY `FK_records_compositions` (`composition_id`),
+	#KEY `FK_records_albums` (`album_id`),
+	#KEY `FK_records_collectives` (`collective_id`),
+	#KEY `FK_records_record_types` (`record_type_id`),
+	#KEY `FK_records_files` (`file_id`),
 	CONSTRAINT `FK_records_albums`
 	FOREIGN KEY (`album_id`)
 	REFERENCES `albums` (`id`)
@@ -240,9 +240,9 @@ CREATE TABLE IF NOT EXISTS `musician_records` (
 	`record_id` int(11) NOT NULL,
 	`instrument_id` int(11) NOT NULL,
 	PRIMARY KEY (`id`),
-	KEY `FK_musician_records_people` (`musician_id`),
-	KEY `FK_musician_records_records` (`record_id`),
-	KEY `FK_musician_records_instruments` (`instrument_id`),
+	#KEY `FK_musician_records_people` (`musician_id`),
+	#KEY `FK_musician_records_records` (`record_id`),
+	#KEY `FK_musician_records_instruments` (`instrument_id`),
 	CONSTRAINT `FK_musician_records_instruments`
 	FOREIGN KEY (`instrument_id`)
 	REFERENCES `instruments` (`id`)
@@ -260,8 +260,8 @@ CREATE TABLE IF NOT EXISTS `musician_records` (
 CREATE TABLE IF NOT EXISTS `music_authors` (
 	`music_id` int(11) NOT NULL,
 	`author_id` int(11) NOT NULL,
-	KEY `FK_music_authors_musics` (`music_id`),
-	KEY `FK_music_authors_people` (`author_id`),
+	#KEY `FK_music_authors_musics` (`music_id`),
+	#KEY `FK_music_authors_people` (`author_id`),
 	CONSTRAINT `FK_music_authors_musics`
 	FOREIGN KEY (`music_id`)
 	REFERENCES `musics` (`id`)
@@ -275,8 +275,8 @@ CREATE TABLE IF NOT EXISTS `music_authors` (
 CREATE TABLE IF NOT EXISTS `text_authors` (
 	`text_id` int(11) NOT NULL,
 	`author_id` int(11) NOT NULL,
-	KEY `FK_text_authors_texts` (`text_id`),
-	KEY `FK_text_authors_people` (`author_id`),
+	#KEY `FK_text_authors_texts` (`text_id`),
+	#KEY `FK_text_authors_people` (`author_id`),
 	CONSTRAINT `FK_text_authors_people`
 	FOREIGN KEY (`author_id`)
 	REFERENCES `people` (`id`)
