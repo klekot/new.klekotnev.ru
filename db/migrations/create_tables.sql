@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`person_id` int(11) NOT NULL,
 	#KEY `FK_authors_people` (`id`),
+	PRIMARY KEY (`id`),
 	CONSTRAINT `FK_authors_people`
 	FOREIGN KEY (`person_id`)
 	REFERENCES `people` (`id`)
@@ -89,6 +90,7 @@ CREATE TABLE IF NOT EXISTS `musicians` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`person_id` int(11) NOT NULL,
 	#KEY `FK_musicians_people` (`id`),
+	PRIMARY KEY (`id`),
 	CONSTRAINT `FK_musicians_people`
 	FOREIGN KEY (`person_id`)
 	REFERENCES `people` (`id`)
@@ -159,6 +161,7 @@ CREATE TABLE IF NOT EXISTS `collective_musicians` (
 	`musician_id` int(11) NOT NULL,
 	#KEY `FK_collective_musicians_collectives` (`collective_id`),
 	#KEY `FK_collective_musicians_people` (`musician_id`),
+	PRIMARY KEY (`id`),
 	CONSTRAINT `FK_collective_musicians_collectives`
 	FOREIGN KEY (`collective_id`)
 	REFERENCES `collectives` (`id`)
@@ -262,6 +265,7 @@ CREATE TABLE IF NOT EXISTS `music_authors` (
 	`author_id` int(11) NOT NULL,
 	#KEY `FK_music_authors_musics` (`music_id`),
 	#KEY `FK_music_authors_people` (`author_id`),
+	PRIMARY KEY (`id`),
 	CONSTRAINT `FK_music_authors_musics`
 	FOREIGN KEY (`music_id`)
 	REFERENCES `musics` (`id`)
@@ -277,6 +281,7 @@ CREATE TABLE IF NOT EXISTS `text_authors` (
 	`author_id` int(11) NOT NULL,
 	#KEY `FK_text_authors_texts` (`text_id`),
 	#KEY `FK_text_authors_people` (`author_id`),
+	PRIMARY KEY (`id`),
 	CONSTRAINT `FK_text_authors_people`
 	FOREIGN KEY (`author_id`)
 	REFERENCES `people` (`id`)
